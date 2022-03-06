@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 
-const isFalsy = val => (val === 0 ? false : !val)
+const isFalsy = (val: unknown) => (val === 0 ? false : !val)
 
-export const cleanObject = obj => {
+export const cleanObject = (obj: object) => {
   const res = { ...obj }
   Object.keys(res).forEach(key => {
+    //@ts-ignore
     if (isFalsy(res[key])) {
+      //@ts-ignore
       delete res[key]
     }
   })
@@ -35,7 +37,7 @@ export const cleanObject = obj => {
 // log()
 
 // debounce hook
-export const useDebounce = (value, delay) => {
+export const useDebounce = (value: any, delay?: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value)
 
   useEffect(() => {

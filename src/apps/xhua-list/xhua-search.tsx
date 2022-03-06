@@ -1,4 +1,21 @@
-const XhuaSearch = ({ personInfo, setPersonInfo, users }) => {
+interface User {
+  name: string
+  id: number
+  email: string
+  title: string
+  organization: string
+}
+
+interface ISearchProps {
+  personInfo: {
+    name: string
+    personId: string
+  }
+  setPersonInfo: (personInfo: ISearchProps['personInfo']) => void
+  users: User[]
+}
+
+const XhuaSearch = ({ personInfo, setPersonInfo, users }: ISearchProps) => {
   return (
     <>
       <form action=''>
