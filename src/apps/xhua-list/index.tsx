@@ -19,7 +19,9 @@ const XhuaList = () => {
 
   useEffect(() => {
     fetch(
-      `${baseUrl}/projects?${qs.stringify(cleanObject(debouncedPersonInfo))}`
+      `${baseUrl}/projects?${qs.stringify(
+        cleanObject(debouncedPersonInfo as object)
+      )}`
     ).then(async res => {
       if (res.ok) {
         setList(await res.json())

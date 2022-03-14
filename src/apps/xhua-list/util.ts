@@ -37,7 +37,7 @@ export const cleanObject = (obj: object) => {
 // log()
 
 // debounce hook
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = (value: unknown, delay?: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value)
 
   useEffect(() => {
