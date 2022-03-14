@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import List from './list'
 import SearchPanel from './search-panel'
-import { cleanObject } from './util'
+import { cleanObject, useDebounce } from './util'
 import qs from 'qs'
 
 const baseUrl = process.env.REACT_APP_API_URL
@@ -14,15 +14,17 @@ const ProjectList = () => {
     personId: '',
   })
 
+  const debouncedValue = useDebounce(param, 500)
+
   useEffect(() => {
-    fetch(`${baseUrl}/projects?${qs.stringify(cleanObject(param))}`).then(
-      async res => {
-        if (res.ok) {
-          setList(await res.json())
-        }
+    fetch(
+      `${baseUrl}/projects?${qs.stringify(cleanObject(debouncedValue))}`
+    ).then(async res => {
+      if (res.ok) {
+        setList(await res.json())
       }
-    )
-  }, [param])
+    })
+  }, [debouncedValue])
 
   useEffect(() => {
     fetch(`${baseUrl}/users`).then(async res => {

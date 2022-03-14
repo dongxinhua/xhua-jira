@@ -1,4 +1,25 @@
-const List = ({ list, users }) => {
+interface IListProps {
+  list: Project[]
+  users: User[]
+}
+
+interface User {
+  name: string
+  id: string
+  email: string
+  title: string
+  organization: string
+}
+
+interface Project {
+  id: string
+  name: string
+  personId: string
+  organization: string
+  pin: string
+}
+
+const List = ({ list, users }: IListProps) => {
   return (
     <>
       <table>

@@ -1,4 +1,21 @@
-const SearchPanel = ({ param, setParam, users }) => {
+interface User {
+  name: string
+  id: number
+  email: string
+  title: string
+  organization: string
+}
+
+interface ISearchProps {
+  param: {
+    name: string
+    personId: string
+  }
+  setParam: (param: ISearchProps['param']) => void
+  users: User[]
+}
+
+const SearchPanel = ({ param, setParam, users }: ISearchProps) => {
   return (
     <>
       <form action=''>
