@@ -3,8 +3,9 @@ import logo from './logo.svg'
 import './App.css'
 
 // import ProjectList from 'apps/project-list'
-import XhuaList from 'apps/xhua-list'
-import TsReactTest from 'apps/try-use-array'
+// import XhuaList from 'apps/xhua-list'
+// import TsReactTest from 'apps/try-use-array'
+import Login from 'apps/login'
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <img src={logo} className='App-logo' alt='logo' />
         {/* <ProjectList /> */}
         {/* <XhuaList /> */}
-        <TsReactTest />
+        {/* <TsReactTest /> */}
+        <Login />
       </header>
     </div>
   )
