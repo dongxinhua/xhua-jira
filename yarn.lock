@@ -2606,7 +2606,7 @@ ansi-styles@^6.0.0:
   resolved "https://registry.npmmirror.com/ansi-styles/-/ansi-styles-6.1.0.tgz#87313c102b8118abd57371afab34618bf7350ed3"
   integrity sha512-VbqNsoz55SYGczauuup0MFUyXNQviSpFTj1RQtFzmQLk18qbVSpTFFGMT293rmDaQuKCT6InmbuEyUne4mTuxQ==
 
-antd@^4.9.1:
+antd@^4.19.2, antd@^4.9.1:
   version "4.19.2"
   resolved "https://registry.npmmirror.com/antd/-/antd-4.19.2.tgz#5438478aedf61bf670784611cba077387ff0f1b3"
   integrity sha512-qXM6d6hFsT5rZJB4TRTHl32dixu1IHmPD0QLzG5YuUpzecv6QoTr1ZMp2/I1MMCb1+n99yQ5gFx7U677AbL5hw==
