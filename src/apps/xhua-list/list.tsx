@@ -1,23 +1,4 @@
-interface Project {
-  id: string
-  name: string
-  personId: string
-  organization: string
-  pin: string
-}
-
-interface User {
-  name: string
-  id: string
-  email: string
-  title: string
-  organization: string
-}
-
-interface IListProps {
-  list: Project[]
-  users: User[]
-}
+import { IListProps } from './types'
 
 const List = ({ list, users }: IListProps) => {
   return (

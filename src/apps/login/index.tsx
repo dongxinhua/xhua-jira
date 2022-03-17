@@ -1,27 +1,12 @@
 import { FormEvent } from 'react'
 
-interface loginProps {
-  username: string
-  password: string
-}
+// import { AuthForm } from 'common/types/user'
+import { useAuth } from 'context/auth-context'
 
-const baseUrl = process.env.REACT_APP_API_URL
+// const baseUrl = process.env.REACT_APP_API_URL
 
 const Login = () => {
-  const login = (param: loginProps) => {
-    fetch(`${baseUrl}/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(param),
-    }).then(async res => {
-      if (res.ok) {
-        // setList(await res.json())
-        console.log(await res.json())
-      }
-    })
-  }
+  const { login } = useAuth()
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
