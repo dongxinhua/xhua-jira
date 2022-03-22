@@ -11,7 +11,6 @@ export const cleanObject = (obj: object) => {
       delete res[key]
     }
   })
-  console.log(res)
   return res
 }
 

@@ -5,12 +5,10 @@ import XhuaList from './apps/xhua-list'
 const LoginedPage = () => {
   const { user, logout } = useAuth()
 
-  console.log(user)
-
   return (
     <>
       <>
-        <span>登录成功</span>
+        <span>登录成功, {user?.name}</span>
         <button onClick={() => logout()}>退出登录</button>
       </>
       <XhuaList />

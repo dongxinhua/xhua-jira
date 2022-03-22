@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import qs from 'qs'
 
 import XhuaSearch from './xhua-search'
 import List from './list'
 import { cleanObject, useDebounce } from 'apps/xhua-list/util'
-
-const baseUrl = process.env.REACT_APP_API_URL
+import { useRequest } from 'common/utils/request'
 
 const XhuaList = () => {
   const [personInfo, setPersonInfo] = useState({
@@ -14,26 +12,20 @@ const XhuaList = () => {
   })
   const debouncedPersonInfo = useDebounce(personInfo, 500)
 
+  const clinet = useRequest()
+
   const [users, setUsers] = useState([])
   const [list, setList] = useState([])
 
   useEffect(() => {
-    fetch(
-      `${baseUrl}/projects?${qs.stringify(cleanObject(debouncedPersonInfo))}`
-    ).then(async res => {
-      if (res.ok) {
-        setList(await res.json())
-      }
-    })
-  }, [debouncedPersonInfo])
+    clinet('projects', {
+      data: cleanObject(debouncedPersonInfo),
+    }).then(setList)
+  }, [debouncedPersonInfo, clinet])
 
   useEffect(() => {
-    fetch(`${baseUrl}/users`).then(async res => {
-      if (res.ok) {
-        setUsers(await res.json())
-      }
-    })
-  }, [])
+    clinet('users').then(setUsers)
+  }, [clinet])
 
   return (
     <>

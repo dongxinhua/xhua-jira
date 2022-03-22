@@ -12,7 +12,6 @@ import LoginedPage from 'logined-app'
 
 function App() {
   const { user } = useAuth()
-  console.log(user)
   return (
     <div className='App'>
       {/* <header className='App-header'> */}

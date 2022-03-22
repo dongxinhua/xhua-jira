@@ -1,7 +1,24 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 
 import * as auth from 'auth-provider'
 import { AuthForm, User } from 'common/types/user'
+import { request } from '../common/utils/request'
+
+const bootStrapUser = async () => {
+  let user = null
+  const token = auth.getToken()
+  if (token) {
+    const data = await request('me', { token })
+    user = data.user
+  }
+  return user
+}
 
 const AuthContext = createContext<
   | {
@@ -24,6 +41,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     auth.logout()
     setUser(null)
   }
+
+  useEffect(() => {
+    bootStrapUser().then(setUser)
+  }, [])
 
   return (
     <AuthContext.Provider
